@@ -2,9 +2,12 @@ import ctypes
 from ctypes import *
 import tkinter as tk
 from tkinter import messagebox
+import os
 
-# Load the DLL
-dietdll = ctypes.CDLL(r'miniproj\dietplanner.dll')
+base_dir = os.path.dirname(__file__)
+dll_path = os.path.join(base_dir, "dietplanner.dll")
+
+dietdll = ctypes.CDLL(dll_path)
 
 # Set argument and return types
 dietdll.loadSampleRecipes.restype = None
